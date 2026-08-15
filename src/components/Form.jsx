@@ -1,6 +1,4 @@
-export default
-
-	function Formu() {
+export default function Formu() {
 		return (
 			<form className="add-form">
       <h3>Hari ini belanja apa kita?</h3>

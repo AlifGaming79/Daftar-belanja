@@ -1,25 +1,34 @@
-export default
+const groceryItems = [
+	{
+		id: 1,
+		name: 'Kopi bubuk',
+		quantity: 1,
+		checked: true,
+	},
+	{
+		id: 2,
+		name: 'Nasi goreng',
+		quantity: 5,
+		checked: false,
+	},
+	{
+		id: 3,
+		name: 'Krupuk',
+		quantity: 5,
+		checked: false,
+	},
+]
 
-function GroceryList() {
+import Item from './Items.jsx'
+
+export default function GroceryList() {
 	return (
 		<>
 		<div className="list">
       <ul>
-        <li>
-          <input type="checkbox"/>
-					<span style={{ textDecoration: 'line-through' }}>1 Kopi</span>
-          <button>&times;</button>
-        </li>
-        <li>
-          <input type="checkbox" />
-          <span>5 Gula Pasir</span>
-          <button>&times;</button>
-        </li>
-        <li>
-          <input type="checkbox" />
-          <span>3 Air Mineral</span>
-          <button>&times;</button>
-        </li>
+				{groceryItems.map((item) => (
+				<Item item={item} key={item.id}/>
+				))}
       </ul>
     </div>
     <div className="actions">
