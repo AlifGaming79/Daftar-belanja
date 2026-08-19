@@ -1,12 +1,18 @@
 import React, { useState } from 'react';
-export default function Formu() {
 
+export default function Formu({onAddItem}) {
 		const [quantity, setQuantity] = useState(1)
-		
-
 		const [name, setName] = useState('')
 		function handleSubmit(e) {
+
 			e.preventDefault()
+			if(!name) return
+
+			const newItem = { name, quantity, checked: false, id: Date.now()}
+			onAddItem(newItem)
+
+			setName('')
+			setQuantity(1)
 		}
 	
 
@@ -20,7 +26,7 @@ export default function Formu() {
 			<form className="add-form" onSubmit={handleSubmit}>
       <h3>Hari ini belanja apa kita?</h3>
       <div>
-        <select value={quantity} onChange={(e) => setQuantity(e.target.value)}>
+        <select value={quantity} onChange={(e) => setQuantity(Number(e.target.value))}>
 					{quantityNum}
         </select>
         <input type="text" placeholder="nama barang..." value={name} onChange={(e) => setName(e.target.value)}/>

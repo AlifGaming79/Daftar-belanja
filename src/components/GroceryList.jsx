@@ -1,32 +1,11 @@
-const groceryItems = [
-	{
-		id: 1,
-		name: 'Kopi bubuk',
-		quantity: 1,
-		checked: true,
-	},
-	{
-		id: 2,
-		name: 'Nasi goreng',
-		quantity: 5,
-		checked: false,
-	},
-	{
-		id: 3,
-		name: 'Krupuk',
-		quantity: 5,
-		checked: false,
-	},
-]
-
 import Item from './Items.jsx'
 
-export default function GroceryList() {
+export default function GroceryList({items}) {
 	return (
 		<>
 		<div className="list">
       <ul>
-				{groceryItems.map((item) => (
+				{items.map((item) => (
 				<Item item={item} key={item.id}/>
 				))}
       </ul>
